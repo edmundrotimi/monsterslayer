@@ -7,7 +7,6 @@ import (
 )
 
 func StatusAttack() {
-
 	//Player attack monster
 	playerAttackDamage := RandGen(state.GameMode["minRandNum"], state.GameMode["maxRandNum"])
 	state.HealthStatus["monster"] = state.HealthStatus["monster"] - playerAttackDamage
