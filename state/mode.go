@@ -4,7 +4,7 @@ package state
 
 var GameMode map[string]int = map[string]int{
 	"active":            1,  // track if game has ended
-	"round":             0,  // keep track of game round
+	"round":             1,  // keep track of game round
 	"minRandNum":        9,  // min number used for random gen
 	"maxRandNum":        15, // max number used for random gen
 	"specialMinRandNum": 12, // Special Atk min number used for random gen

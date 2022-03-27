@@ -30,7 +30,11 @@ func SelectGameOption(startOption int) {
 			fmt.Println("*************************************")
 			fmt.Println("1. Attack Monster")
 			fmt.Println("2. Heal")
-			fmt.Println("3. Special Attack")
+
+			if state.GameMode["round"]%3 == 0 {
+
+				fmt.Println("3. Special Attack")
+			}
 
 			//input prompt
 			fmt.Print("Enter an option: ")
@@ -42,6 +46,7 @@ func SelectGameOption(startOption int) {
 			cleanInput, err := strconv.ParseInt(userInput, 0, 64)
 
 			if err != nil {
+				fmt.Println("--------------------------------------")
 				fmt.Println("Invalid selection; enter new option")
 			}
 

@@ -6,18 +6,25 @@ import (
 	"github.com/edmundrotimi/monsterslayer/state"
 )
 
-func StatusAttack() {
+func StatusHeal() {
 
-	//Player attack monster
-	playerAttackDamage := RandGen(state.GameMode["minRandNum"], state.GameMode["maxRandNum"])
-	state.HealthStatus["monster"] = state.HealthStatus["monster"] - playerAttackDamage
+	//Player healing
+	playerHealBalm := RandGen(state.GameMode["minRandNum"], state.GameMode["maxRandNum"])
+	// ensure health do not exceed 100
+	healthLevel := state.HealthStatus["player"] + playerHealBalm
+
+	if healthLevel > 100 {
+		state.HealthStatus["player"] = 100
+	} else {
+		state.HealthStatus["player"] = state.HealthStatus["player"] + playerHealBalm
+	}
 
 	// monster attack player
 	monsterAttackDamage := RandGen(state.GameMode["monsterMinRandNum"], state.GameMode["monsterMaxRandNum"])
 	state.HealthStatus["player"] = state.HealthStatus["player"] - monsterAttackDamage
 
 	fmt.Println("-----------------------------------------------------")
-	fmt.Printf("Player attack monster with %v damage level\n", playerAttackDamage)
+	fmt.Printf("Player used health toolbox with %v heal level\n", playerHealBalm)
 	fmt.Printf("Monster attack player with %v damage level\n", monsterAttackDamage)
 	fmt.Println("*****************************************************")
 	fmt.Printf("Player Health: %v\n", state.HealthStatus["player"])
