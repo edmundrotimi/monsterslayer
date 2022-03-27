@@ -20,6 +20,8 @@ func UserInstruction() {
 	fmt.Println("5. Monster will always attack irrespective of players' attack or healing.")
 	fmt.Println("6. Whoever reaches a health score of zero losses")
 
-	StartGame()
+	startOption := StartGame()
 
+	//game option
+	SelectGameOption(startOption)
 }

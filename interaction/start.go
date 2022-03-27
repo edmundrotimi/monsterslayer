@@ -20,7 +20,7 @@ var startStatus map[string]options = map[string]options{
 	},
 }
 
-func StartGame() {
+func StartGame() int {
 	for startPrompt {
 
 		fmt.Println("-----------------------------------------------------")
@@ -42,10 +42,13 @@ func StartGame() {
 			} else {
 				fmt.Println(startStatus["input"][input])
 				startPrompt = false
+				return int(input)
 			}
 
 		} else {
 			fmt.Println(startStatus["input"][2])
 		}
 	}
+
+	return 0
 }
